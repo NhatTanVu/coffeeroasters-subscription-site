@@ -121,10 +121,15 @@
                     text-decoration: inherit; /* no underline */
                 }
 
-                    ul.navigation-menu > li > a:hover,
                     ul.navigation-menu > li > a:focus {
                         color: var(--dark-grey-blue);
                     }
+
+        @media (hover: hover) {
+            ul.navigation-menu > li > a:hover {
+                color: var(--dark-grey-blue);
+            }
+        }
 
         .title-alternate-big {
             font-family: 'Fraunces', serif;
@@ -201,36 +206,41 @@
                 padding: 1rem 5rem;
             }
 
-                button.main-button:hover,
                 button.main-button:focus,
                 button.main-button.hovered {
                     background-color: var(--main-button-hover);
                 }
 
-                button.main-button[disabled] {
-                    background-color: var(--main-button-disabled);
-                    pointer-events: none;
-                }
+        @media (hover: hover) {
+            button.main-button:hover {
+                background-color: var(--main-button-hover);
+            }
+        }
 
-            button.big-selection-option {
-                padding: 2rem 1.75rem 5.25rem 1.75rem;
-                width: 14.25rem;
-                background-color: var(--big-selection-option-default);
+        button.main-button[disabled] {
+            background-color: var(--main-button-disabled);
+            pointer-events: none;
+        }
+
+        button.big-selection-option {
+            padding: 2rem 1.75rem 5.25rem 1.75rem;
+            width: 14.25rem;
+            background-color: var(--big-selection-option-default);
+            color: var(--dark-grey-blue);
+            text-align: left;
+            border-radius: 0.5rem;
+        }
+
+            button.big-selection-option.hovered {
+                background-color: var(--pale-orange);
                 color: var(--dark-grey-blue);
-                text-align: left;
-                border-radius: 0.5rem;
             }
 
-                button.big-selection-option.hovered {
-                    background-color: var(--pale-orange);
-                    color: var(--dark-grey-blue);
-                }
-
-                button.big-selection-option:focus,
-                button.big-selection-option.active {
-                    background-color: var(--dark-cyan);
-                    color: white;
-                }
+            button.big-selection-option:focus,
+            button.big-selection-option.active {
+                background-color: var(--dark-cyan);
+                color: white;
+            }
 
         @media (hover: hover) {
             button.big-selection-option:hover,
@@ -263,10 +273,15 @@
             }
 
             button.accordion-button.hovered svg,
-            button.accordion-button:focus svg,
+            button.accordion-button:focus svg {
+                fill: var(--main-button-hover);
+            }
+
+        @media (hover: hover) {
             button.accordion-button:hover svg {
                 fill: var(--main-button-hover);
             }
+        }
 
         /* ------------------- */
         /* Design System       */
