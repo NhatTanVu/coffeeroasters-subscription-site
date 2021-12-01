@@ -221,47 +221,52 @@
                 border-radius: 0.5rem;
             }
 
-                button.big-selection-option:hover,
-                button.big-selection-option.active:hover,
                 button.big-selection-option.hovered {
                     background-color: var(--pale-orange);
                     color: var(--dark-grey-blue);
                 }
 
                 button.big-selection-option:focus,
-                button.big-selection-option:active,
                 button.big-selection-option.active {
                     background-color: var(--dark-cyan);
                     color: white;
                 }
 
-            button.accordion-button {
-                display: flex;
-                align-items: center;
-                width: 100%;
-                justify-content: space-between;
-                color: var(--grey);
-                background-color: transparent;
+        @media (hover: hover) {
+            button.big-selection-option:hover,
+            button.big-selection-option.active:hover {
+                background-color: var(--pale-orange);
+                color: var(--dark-grey-blue);
+            }
+        }
+
+        button.accordion-button {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+            color: var(--grey);
+            background-color: transparent;
+        }
+
+            button.accordion-button svg {
+                fill: var(--dark-cyan);
             }
 
-                button.accordion-button svg {
-                    fill: var(--dark-cyan);
-                }
+            button.accordion-button[disabled] {
+                color: var(--main-button-disabled);
+                pointer-events: none;
+            }
 
-                button.accordion-button[disabled] {
-                    color: var(--main-button-disabled);
-                    pointer-events: none;
-                }
+            button.accordion-button.opened svg {
+                transform: rotate(-180deg);
+            }
 
-                button.accordion-button.opened svg {
-                    transform: rotate(-180deg);
-                }
-
-                button.accordion-button.hovered svg,
-                button.accordion-button:focus svg,
-                button.accordion-button:hover svg {
-                    fill: var(--main-button-hover);
-                }
+            button.accordion-button.hovered svg,
+            button.accordion-button:focus svg,
+            button.accordion-button:hover svg {
+                fill: var(--main-button-hover);
+            }
 
         /* ------------------- */
         /* Design System       */
