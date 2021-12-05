@@ -308,6 +308,8 @@ footer {
 
             footer > .icons > a > svg {
                 fill: var(--light-cream);
+                width: 1.5rem;
+                height: 1.5rem;
                 display: block;
             }
 
