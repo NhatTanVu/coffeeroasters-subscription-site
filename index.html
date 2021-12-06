@@ -90,6 +90,7 @@
 
                 .home > main > .why-choose-us > .top > div {
                     margin-top: 2rem;
+                    opacity: 0.8;
                 }
 
             .home > main > .why-choose-us > .bottom {
@@ -173,6 +174,137 @@
                 .home > main > .how-it-works > .steps > div > h3 {
                     margin: 2.375rem 1.875rem 2.625rem 0;
                 }
+
+        /* ------------------- */
+        /* Tablet view         */
+        /* ------------------- */
+        @media only screen and (min-width : 768px) and (max-width : 1023px) {
+            .home > main > .great-coffee-made-simple {
+                background-image: url('./assets/home/tablet/image-hero-coffeepress.jpg');
+                padding: 7rem 0 7rem 4rem;
+                margin-bottom: 9.6rem;
+                border-radius: 0.666rem;
+            }
+
+                .home > main > .great-coffee-made-simple > div {
+                    width: 26.533rem;
+                    text-align: left;
+                }
+
+                    .home > main > .great-coffee-made-simple > div > h1 {
+                        font-size: 3.2rem;
+                        line-height: 3.2rem;
+                    }
+
+                    .home > main > .great-coffee-made-simple > div > div {
+                        margin: 1.6rem 0 2.667rem 0;
+                    }
+
+            .home > main > .our-collection {
+                margin: 0;
+            }
+
+                .home > main > .our-collection > .title-alternate-big {
+                    height: 7.867rem;
+                    padding-top: 1.8rem;
+                }
+
+                .home > main > .our-collection > .grid {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(4, 1fr);
+                    padding: 4rem 3.867rem 0 3.867rem;
+                    --gap: 1.133rem;
+                    margin-bottom: 9.6rem;
+                }
+
+                    .home > main > .our-collection > .grid > div.vertical-flex {
+                        flex-direction: row;
+                    }
+
+                        .home > main > .our-collection > .grid > div.vertical-flex > img {
+                            width: 16rem;
+                            margin-top: 1rem;
+                            margin-left: 1rem;
+                        }
+
+                        .home > main > .our-collection > .grid > div.vertical-flex > div.vertical-flex {
+                            margin-top: 2rem;
+                            text-align: left;
+                        }
+
+            .home > main > .why-choose-us {
+                border-radius: 0.666rem;
+            }
+
+                .home > main > .why-choose-us > .top {
+                    padding: 3.733rem 4.933rem 24.533rem 4.933rem;
+                }
+
+                    .home > main > .why-choose-us > .top > div {
+                        margin-top: 1.6rem;
+                    }
+
+                .home > main > .why-choose-us > .bottom {
+                    position: absolute;
+                    top: 18.333rem;
+                    left: 3.8rem;
+                    right: 3.8rem;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(3, 1fr);
+                    --gap: 1.6rem;
+                }
+
+                    .home > main > .why-choose-us > .bottom > .vertical-flex {
+                        flex-direction: row;
+                    }
+
+                        .home > main > .why-choose-us > .bottom > .vertical-flex > :first-child {
+                            height: 3.733rem;
+                            min-width: 3.733rem;
+                            margin: 0 0 0 4.667rem;
+                        }
+
+                        .home > main > .why-choose-us > .bottom > .vertical-flex > :nth-child(2) {
+                            margin: 2.733rem 3.2rem 2.733rem 3.667rem;
+                            text-align: left;
+                        }
+
+                            .home > main > .why-choose-us > .bottom > .vertical-flex > :nth-child(2) > div {
+                                margin-top: 1.067rem;
+                            }
+
+            .home > main > .how-it-works {
+                margin: 29rem 0 9.6rem 0;
+                text-align: left;
+                position: relative;
+            }
+
+                .home > main > .how-it-works > .path {
+                    position: absolute;
+                    top: 5.8rem;
+                    left: 1rem;
+                    width: 31.133rem;
+                    border: 0.125rem solid var(--pale-orange);
+                    background-color: var(--pale-orange);
+                }
+
+                .home > main > .how-it-works > .oval-container {
+                    position: absolute;
+                    top: 4.8rem;
+                    left: 0;
+                    width: 33.133rem;
+                    justify-content: space-between;
+                }
+
+                .home > main > .how-it-works > .steps {
+                    --gap: 0.666rem;
+                    margin: 8rem 0 3rem 0;
+                }
+
+                    .home > main > .how-it-works > .steps > div > h3 {
+                        margin: 2.8rem 0 2.533rem 0;
+                    }
+        }
     </style>
 </head>
 <body class="home container vertical-flex">
@@ -201,34 +333,42 @@
             <div class="grid">
                 <div class="vertical-flex">
                     <img src="./assets/home/desktop/image-gran-espresso.png" alt="Gran Espresso" />
-                    <h4>Gran Espresso</h4>
-                    <div>
-                        Light and flavorful blend with cocoa and black pepper for an intense experience.
+                    <div class="vertical-flex">
+                        <h4>Gran Espresso</h4>
+                        <div>
+                            Light and flavorful blend with cocoa and black pepper for an intense experience.
+                        </div>
                     </div>
                 </div>
                 <div class="vertical-flex">
                     <img src="./assets/home/desktop/image-planalto.png" alt="Planalto" />
-                    <h4>Planalto</h4>
-                    <div>
-                        Brazilian dark roast with rich and velvety body, and hints of fruits and nuts.
+                    <div class="vertical-flex">
+                        <h4>Planalto</h4>
+                        <div>
+                            Brazilian dark roast with rich and velvety body, and hints of fruits and nuts.
+                        </div>
                     </div>
                 </div>
                 <div class="vertical-flex">
                     <img src="./assets/home/desktop/image-piccollo.png" alt="Piccollo" />
-                    <h4>
-                        Piccollo
-                    </h4>
-                    <div>
-                        Mild and smooth blend featuring notes of toasted almond and dried cherry.
+                    <div class="vertical-flex">
+                        <h4>
+                            Piccollo
+                        </h4>
+                        <div>
+                            Mild and smooth blend featuring notes of toasted almond and dried cherry.
+                        </div>
                     </div>
                 </div>
                 <div class="vertical-flex">
                     <img src="./assets/home/desktop/image-danche.png" alt="Danche" />
-                    <h4>
-                        Danche
-                    </h4>
-                    <div>
-                        Ethiopian hand-harvested blend densely packed with vibrant fruit notes.
+                    <div class="vertical-flex">
+                        <h4>
+                            Danche
+                        </h4>
+                        <div>
+                            Ethiopian hand-harvested blend densely packed with vibrant fruit notes.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -312,7 +452,7 @@
             <button class="main-button">Create your plan</button>
         </div>
     </main>
-    <footer class="grid">
+    <footer>
         <img src="./assets/shared/desktop/logo-white.svg" />
         <ul class="navigation-menu">
             <li><a href="./index.html">home</a></li>
