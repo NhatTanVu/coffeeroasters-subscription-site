@@ -18,7 +18,6 @@
             background-repeat: no-repeat;
             background-size: cover;
             color: var(--light-cream);
-            aspect-ratio: 32/15;
             padding: 7.25rem 0 7.25rem 5.3125rem;
             justify-content: center;
             border-radius: 0.625rem;
@@ -178,7 +177,7 @@
         /* ------------------- */
         /* Tablet view         */
         /* ------------------- */
-        @media only screen and (max-width : 1023px) {
+        @media only screen and (min-width : 768px) and (max-width : 1023.999px) {
             .home > main > .great-coffee-made-simple {
                 background-image: url('./assets/home/tablet/image-hero-coffeepress.jpg');
                 padding: 7rem 0 7rem 4rem;
@@ -305,16 +304,142 @@
                         margin: 2.8rem 0 2.533rem 0;
                     }
         }
+
+        /* ------------------- */
+        /* Mobile view         */
+        /* ------------------- */
+        @media only screen and (max-width : 767px) {
+            .home > main > .great-coffee-made-simple {
+                background-image: url('./assets/home/mobile/image-hero-coffeepress.jpg');
+                padding: 6.667rem 1.6rem 6.6rem 1.6rem;
+                margin-bottom: 8rem;
+                border-radius: 0.666rem;
+            }
+
+                .home > main > .great-coffee-made-simple > div {
+                    width: 100%;
+                }
+
+                    .home > main > .great-coffee-made-simple > div > h1 {
+                        font-size: 2.667rem;
+                        line-height: 2.667rem;
+                    }
+
+                    .home > main > .great-coffee-made-simple > div > div {
+                        margin: 1.6rem 0 2.9rem 0;
+                    }
+
+            .home > main > .our-collection {
+                margin: 0;
+            }
+
+                .home > main > .our-collection > .title-alternate-big {
+                    font-size: 2.667rem;
+                    line-height: 4.8rem;
+                    height: 4.8rem;
+                    padding-top: 0;
+                    left: -1.6rem;
+                    right: -1.6rem;
+                    width: auto;
+                }
+
+                .home > main > .our-collection > .grid {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(4, 1fr);
+                    padding-top: 6rem;
+                    --gap: 3.2rem;
+                    margin-bottom: 8rem;
+                }
+
+                    .home > main > .our-collection > .grid > div.vertical-flex {
+                        align-items: center;
+                        --gap: 1.6rem;
+                    }
+
+                        .home > main > .our-collection > .grid > div.vertical-flex > img {
+                            /*width: 13.333rem;*/
+                            height: 10rem;
+                            width: auto;
+                            margin-left: 1rem;
+                        }
+
+                        .home > main > .our-collection > .grid > div.vertical-flex > div.vertical-flex {
+                            --gap: 1.067rem;
+                        }
+
+            .home > main > .why-choose-us {
+                border-radius: 0.666rem;
+            }
+
+                .home > main > .why-choose-us > .top {
+                    padding: 4.267rem 1.6rem 44rem 1.6rem;
+                }
+
+                    .home > main > .why-choose-us > .top > h2 {
+                        font-size: 1.867rem;
+                        line-height: 1.867rem;
+                    }
+
+                    .home > main > .why-choose-us > .top > div {
+                        margin-top: 1.6rem;
+                    }
+
+                .home > main > .why-choose-us > .bottom {
+                    position: absolute;
+                    top: 20.333rem;
+                    left: 1.6rem;
+                    right: 1.6rem;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(3, 1fr);
+                    --gap: 1.6rem;
+                }
+
+                    .home > main > .why-choose-us > .bottom > .vertical-flex > :first-child {
+                        height: 4.8rem;
+                        min-width: 4.8rem;
+                        margin-top: 4.8rem;
+                    }
+
+                    .home > main > .why-choose-us > .bottom > .vertical-flex > :nth-child(2) {
+                        margin: 3.733rem 0.8rem 3.4rem 0.8rem;
+                    }
+
+                        .home > main > .why-choose-us > .bottom > .vertical-flex > :nth-child(2) > div {
+                            margin: 1.6rem 1.433rem 0 1.433rem;
+                        }
+
+            .home > main > .how-it-works {
+                margin: 47.8rem 0 8rem 0;
+                text-align: center;
+                position: relative;
+            }
+
+                .home > main > .how-it-works > .path,
+                .home > main > .how-it-works > .oval-container {
+                    display: none;
+                }
+
+                .home > main > .how-it-works > .steps {
+                    flex-direction: column;
+                    margin: 5.333rem 0 5.333rem 0;
+                    --gap: 3.733rem;
+                }
+
+                    .home > main > .how-it-works > .steps > div > h3 {
+                        margin: 1.6rem 0 1.6rem 0;
+                    }
+        }
     </style>
 </head>
 <body class="home container vertical-flex">
     <header class="flex">
-        <img src="./assets/shared/desktop/logo.svg" />
+        <img class="logo" src="./assets/shared/desktop/logo.svg" />
         <ul class="navigation-menu">
-            <li><a href="./index.html">home</a></li>
-            <li><a href="./about.html">about us</a></li>
-            <li><a href="./plan.html">create your plan</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./plan.html">Create Your Plan</a></li>
         </ul>
+        <img class="burger" src="./assets/shared/mobile/icon-hamburger.svg" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.previousElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;" />
     </header>
     <main>
         <div class="great-coffee-made-simple">
@@ -453,7 +578,7 @@
         </div>
     </main>
     <footer>
-        <img src="./assets/shared/desktop/logo-white.svg" />
+        <img class="logo" src="./assets/shared/desktop/logo-white.svg" />
         <ul class="navigation-menu">
             <li><a href="./index.html">home</a></li>
             <li><a href="./about.html">about us</a></li>
