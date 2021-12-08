@@ -120,6 +120,7 @@ ul.navigation-menu {
     font-size: 9.375rem;
     line-height: 4.5rem;
     text-transform: lowercase;
+	white-space: nowrap;
 }
 
 .flex {
