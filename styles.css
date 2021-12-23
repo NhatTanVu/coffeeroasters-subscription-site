@@ -120,7 +120,7 @@ ul.navigation-menu {
     font-size: 9.375rem;
     line-height: 4.5rem;
     text-transform: lowercase;
-	white-space: nowrap;
+    white-space: nowrap;
 }
 
 .flex {
@@ -209,12 +209,15 @@ button {
 
 button.big-selection-option {
     padding: 2rem 1.75rem 5.25rem 1.75rem;
-    width: 14.25rem;
     background-color: var(--big-selection-option-default);
     color: var(--dark-grey-blue);
     text-align: left;
     border-radius: 0.5rem;
 }
+
+    button.big-selection-option > h4 {
+        white-space: nowrap;
+    }
 
     button.big-selection-option.hovered {
         background-color: var(--pale-orange);
@@ -281,9 +284,17 @@ header {
         width: 14.75rem;
     }
 
+        header > img.logo.hidden {
+            display: none;
+        }
+
     header > img.burger {
         display: none;
     }
+
+        header > img.burger.hidden {
+            display: none;
+        }
 
 /* ------------------- */
 /* Footer              */
@@ -484,19 +495,26 @@ footer {
             width: 10.867rem;
         }
 
+            header > img.logo.opened {
+                position: fixed;
+                top: 2.133rem;
+                left: 1.6rem;
+                z-index: 11;
+            }
+
         header > .navigation-menu {
             display: none;
-            position: absolute;
+            position: fixed;
             top: 6rem;
             left: -1.6rem;
             right: -1.6rem;
             height: calc(100vh - 6rem);
-            z-index: 1;
+            z-index: 10;
         }
 
             header > .navigation-menu::before {
                 display: none;
-                position: absolute;
+                position: fixed;
                 top: 0;
                 left: 0;
                 right: 0;
@@ -533,10 +551,15 @@ footer {
 
         header > img.burger {
             display: block;
+            width: 1rem;
         }
 
             header > img.burger.opened {
-                content: url("./assets/shared/mobile/icon-close.svg");
+                /*content: url("./assets/shared/mobile/icon-close.svg");*/ /* Doesn't work with Firefox */
+                position: fixed;
+                top: 2.133rem;
+                right: 1.6rem;
+                z-index: 10;
             }
 
     footer {
@@ -560,7 +583,7 @@ footer {
         }
 
             footer > ul.navigation-menu > li {
-                margin-left: 0 !important; 
+                margin-left: 0 !important;
             }
 
         footer > .icons {

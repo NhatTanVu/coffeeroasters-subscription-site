@@ -31,6 +31,7 @@
 
                 .home > main > .great-coffee-made-simple > div > div {
                     margin: 2rem 3rem 3.5rem 0;
+                    opacity: 0.8;
                 }
 
         .home > main > .our-collection {
@@ -228,7 +229,7 @@
 
                     .home > main > .our-collection > .grid > div.vertical-flex {
                         flex-direction: row;
-						--gap: 2.4rem;
+                        --gap: 2.4rem;
                     }
 
                         .home > main > .our-collection > .grid > div.vertical-flex > img {
@@ -240,7 +241,7 @@
                         .home > main > .our-collection > .grid > div.vertical-flex > div.vertical-flex {
                             margin-top: 2rem;
                             text-align: left;
-							--gap: 1.6rem;
+                            --gap: 1.6rem;
                         }
 
             .home > main > .why-choose-us {
@@ -448,13 +449,15 @@
 </head>
 <body class="home container vertical-flex">
     <header class="flex">
+        <img class="logo hidden" src="./assets/shared/desktop/logo.svg" alt="logo" />
         <img class="logo" src="./assets/shared/desktop/logo.svg" alt="logo" />
         <ul class="navigation-menu">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./about.html">About Us</a></li>
             <li><a href="./plan.html">Create Your Plan</a></li>
         </ul>
-        <img class="burger" src="./assets/shared/mobile/icon-hamburger.svg" alt="burger menu" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.previousElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;" />
+        <img class="burger hidden" src="./assets/shared/mobile/icon-hamburger.svg" alt="burger menu" />
+        <img class="burger" src="./assets/shared/mobile/icon-hamburger.svg" alt="burger menu" onclick="((e) => { e.currentTarget.classList.toggle('opened'); if (e.currentTarget.classList.contains('opened')) e.currentTarget.src = './assets/shared/mobile/icon-close.svg'; else e.currentTarget.src = './assets/shared/mobile/icon-hamburger.svg';  e.currentTarget.previousElementSibling.classList.toggle('hidden'); e.currentTarget.previousElementSibling.previousElementSibling.classList.toggle('opened'); e.currentTarget.previousElementSibling.previousElementSibling.previousElementSibling.classList.toggle('opened'); e.currentTarget.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.classList.toggle('hidden'); return false; })(arguments[0]); return false;" />
     </header>
     <main>
         <div class="great-coffee-made-simple">

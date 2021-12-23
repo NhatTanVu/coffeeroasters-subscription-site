@@ -1,120 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
 
-  <title>Frontend Mentor | Coffeeroasters subscription site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Frontend Mentor | Coffeeroasters subscription site</title>
+
+    <style>
+        .plan > main > .create-plan {
+            background-image: url('./assets/plan/desktop/image-hero-blackcup.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: var(--light-cream);
+            padding: 8.375rem 0 8.375rem 5.3125rem;
+            justify-content: center;
+            border-radius: 0.625rem;
+            margin-bottom: 10.5rem;
+        }
+
+            .plan > main > .create-plan > div {
+                width: 30.375rem;
+                text-align: left;
+            }
+
+                .plan > main > .create-plan > div > div {
+                    margin: 2rem 2.5625rem 0 0;
+                    opacity: 0.8;
+                }
+
+        .plan > main > .how-it-works {
+            text-align: left;
+            position: relative;
+            background-color: var(--dark-grey-blue-2);
+            padding: 12.5rem 9.375rem 6.25rem 5.25rem;
+            margin-bottom: 10.5rem;
+        }
+
+            .plan > main > .how-it-works > h4 {
+                color: var(--grey);
+            }
+
+            .plan > main > .how-it-works > .path {
+                position: absolute;
+                top: 7.25rem;
+                left: 6.25rem;
+                width: 47.5rem;
+                border: 0.125rem solid var(--pale-orange);
+                background-color: var(--pale-orange);
+            }
+
+            .plan > main > .how-it-works > .oval-container {
+                position: absolute;
+                top: 6.25rem;
+                left: 5.25rem;
+                width: 49.5rem;
+                justify-content: space-between;
+            }
+
+                .plan > main > .how-it-works > .oval-container > div.oval {
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 1rem;
+                    border: 0.125rem solid var(--dark-cyan);
+                    background-color: none;
+                }
+
+            .plan > main > .how-it-works > .steps {
+                --gap: 6rem;
+                color: var(--light-cream);
+            }
+
+                .plan > main > .how-it-works > .steps > div > h1 {
+                    color: var(--pale-orange);
+                }
+
+                .plan > main > .how-it-works > .steps > div > h3 {
+                    margin: 2.375rem 1.875rem 2.625rem 0;
+                }
+
+        .plan > main > .steps.flex {
+            --gap: 7.5rem;
+            margin: 0 5.3125rem 10.5rem 5.3125rem;
+        }
+
+            .plan > main > .steps.flex > ul.links {
+                flex: 0 0 15.9rem;
+                text-align: left;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                .plan > main > .steps.flex > ul.links > li:first-child {
+                    padding: 0 0 1.5rem 0;
+                    border-bottom: 0.0625rem solid var(--grey);
+                }
+
+                    .plan > main > .steps.flex > ul.links > li:first-child > a > h4 > span:first-child {
+                        color: var(--dark-cyan);
+                    }
+
+                .plan > main > .steps.flex > ul.links > li:not(:first-child):not(:last-child) {
+                    padding: 1.5rem 0;
+                    border-bottom: 0.0625rem solid var(--grey);
+                }
+
+                .plan > main > .steps.flex > ul.links > li:last-child {
+                    padding: 1.5rem 0 0 0;
+                    opacity: 0.4;
+                }
+
+                .plan > main > .steps.flex > ul.links > li > a {
+                    color: inherit;
+                    text-decoration: inherit; /* no underline */
+                }
+
+                    .plan > main > .steps.flex > ul.links > li > a > h4.flex {
+                        --gap: 1.75rem;
+                    }
+
+                .plan > main > .steps.flex > ul.links > li.disabled {
+                    opacity: 0.2;
+                }
+
+                    .plan > main > .steps.flex > ul.links > li.disabled > a {
+                        pointer-events: none;
+                        cursor: default;
+                    }
+
+                .plan > main > .steps.flex > ul.links > li:first-child:not(.disabled) {
+                    opacity: 1;
+                }
+
+                .plan > main > .steps.flex > ul.links > li:not(:first-child):not(:last-child):not(.disabled) {
+                    opacity: 0.4;
+                }
+
+                .plan > main > .steps.flex > ul.links > li:last-child:not(.disabled) {
+                    opacity: 0.4;
+                }
+
+                .plan > main > .steps.flex > ul.links.completed > li:first-child:not(.disabled) {
+                    opacity: 0.4;
+                }
+
+                .plan > main > .steps.flex > ul.links.completed > li:last-child:not(.disabled) {
+                    opacity: 1;
+                }
+
+        .plan > main > .steps > .details > div:not(:last-child) {
+            margin-bottom: 5.5rem;
+        }
+
+        .plan > main > .steps > .details > div > .big-selection-option-panel.flex {
+            color: var(--grey);
+            margin-top: 3.5rem;
+            justify-content: space-between;
+            --gap: 1.5rem;
+            display: none;
+        }
+
+            .plan > main > .steps > .details > div > .big-selection-option-panel.flex > * {
+                flex: 1;
+            }
+
+            .plan > main > .steps > .details > div > .big-selection-option-panel.flex.opened {
+                display: flex;
+            }
+
+        .plan > main > .steps > .details > div.order-summary {
+            text-align: right;
+        }
+
+            .plan > main > .steps > .details > div.order-summary > div {
+                padding: 3rem 4rem;
+                border-radius: 0.625rem;
+                background-color: var(--dark-grey-blue-2);
+                color: white;
+                margin-bottom: 2.5rem;
+                text-align: left;
+            }
+
+                .plan > main > .steps > .details > div.order-summary > div > .title {
+                    text-transform: uppercase;
+                    opacity: 0.5;
+                    margin-bottom: 0.5rem;
+                }
+
+                .plan > main > .steps > .details > div.order-summary > div > .details {
+                    line-height: 2.5rem;
+                }
+
+        .modal-dialog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+            .modal-dialog.hidden {
+                display: none;
+            }
+
+            .modal-dialog > .overlay {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                opacity: 0.5;
+                content: '';
+            }
+
+            .modal-dialog > .container {
+                position: absolute;
+                margin: 0 28rem 0 28rem;
+                height: 100%;
+            }
+
+                .modal-dialog > .container > .card {
+                    position: relative;
+                    top: 50%;
+                    -webkit-transform: translateY(-50%);
+                    -ms-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                    border-radius: 0.5rem;
+                    background-color: var(--light-cream);
+                    color: var(--dark-grey-blue);
+                    min-height: 58.3vh;
+                    text-align: left;
+                }
+
+                    .modal-dialog > .container > .card > .title {
+                        padding: 3rem 0 2.5rem 3.5rem;
+                        background-color: var(--dark-grey-blue);
+                        border-radius: 0.5rem 0.5rem 0 0;
+                    }
+
+                        .modal-dialog > .container > .card > .title > h2 {
+                            color: white;
+                        }
+
+                    .modal-dialog > .container > .card > .content {
+                        padding: 3.5rem;
+                    }
+
+                        .modal-dialog > .container > .card > .content > h4 {
+                            line-height: 2.5rem;
+                            color: var(--grey);
+                            margin-bottom: 0.5rem;
+                        }
+
+                            .modal-dialog > .container > .card > .content > h4 + div {
+                                margin-bottom: 3rem;
+                                opacity: 0.8;
+                            }
+
+                                .modal-dialog > .container > .card > .content > h4 + div + div.flex {
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    --gap: 1.1875rem;
+                                }
+
+                                    .modal-dialog > .container > .card > .content > h4 + div + div.flex > h3 {
+                                        white-space: nowrap;
+                                    }
+
+                                    .modal-dialog > .container > .card > .content > h4 + div + div.flex > button {
+                                        width: 100%;
+                                        padding: 1rem 0;
+                                    }
+    </style>
 </head>
 
-<body>
-  Home
-  About us
-  Create your plan
-
-  Create a plan
-  Build a subscription plan that best fits your needs. We offer an assortment of the best 
-  artisan coffees from around the globe delivered fresh to your door.
-
-  01
-  Pick your coffee
-  Select from our evolving range of artisan coffees. Our beans are ethically
-  sourced and we pay fair prices for them. There's new coffees in all profiles
-  every month for you to try out.
-  
-  02
-  Choose the frequency
-  Customize your order frequency, quantity, even your roast style and grind type.
-  Pause, skip or cancel your subscription with no commitment through our online portal.
-  
-  03
-  Receive and enjoy!
-  We ship your package within 48 hours, freshly roasted. Sit back and enjoy award-winning
-  world-class coffees curated to provide a distinct tasting experience.
-
-  01 Preferences
-  02 Bean type
-  03 Quantity
-  04 Grind option
-  05 Deliveries
-
-  How do you drink your coffee?
-
-  Capsule
-  Compatible with Nespresso systems and similar brewers
-
-  Filter
-  For pour over or drip methods like Aeropress, Chemex, and V60
-
-  Espresso
-  Dense and finely ground beans for an intense, flavorful experience
-
-  What type of coffee?
-
-  Single origin
-  Distinct, high quality coffee from a specific family-owned farm
-
-  Decaf
-  Just like regular coffee, except the caffeine has been removed
-
-  Blended
-  Combination of two or three dark roasted beans of organic coffees
-
-  How much would you like?
-  250g
-  Perfect for the solo drinker. Yields about 12 delicious cups.
-  
-  500g
-  Perfect option for a couple. Yields about 40 delectable cups.
-
-  1000g
-  Perfect for offices and events. Yields about 90 delightful cups.
-
-  Want us to grind them?
-
-  Wholebean
-  Best choice if you cherish the full sensory experience
-
-  Filter
-  For drip or pour-over coffee methods such as V60 or Aeropress
-
-  Cafetiére
-  Course ground beans specially suited for french press coffee
-
-  How often should we deliver?
-
-  Every week
-  $14.00 per shipment. Includes free first-class shipping.
-
-  Every 2 weeks
-  $17.25 per shipment. Includes free priority shipping.
-
-  Every month
-  $22.50 per shipment. Includes free priority shipping.
-
-  Order Summary
-  “I drink coffee _____, with a _____ type of bean. _____ ground ala _____, 
-  sent to me _____.”
-
-  Create my plan!
-
-  <!-- Modal -->
-  Order Summary
-
-  “I drink coffee _____, with a _____ type of bean. _____ ground ala _____,
-  sent to me _____.”
-
-  Is this correct? You can proceed to checkout or go back to plan selection if something 
-  is off. Subscription discount codes can also be redeemed at the checkout.
-
-  $_____/month
-
-  Checkout
-  <!-- End modal -->
-
-  Home
-  About us
-  Create your plan
+<body class="plan container vertical-flex">
+    <header class="flex">
+        <img class="logo hidden" src="./assets/shared/desktop/logo.svg" alt="logo" />
+        <img class="logo" src="./assets/shared/desktop/logo.svg" alt="logo" />
+        <ul class="navigation-menu">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./plan.html">Create Your Plan</a></li>
+        </ul>
+        <img class="burger hidden" src="./assets/shared/mobile/icon-hamburger.svg" alt="burger menu" />
+        <img class="burger" src="./assets/shared/mobile/icon-hamburger.svg" alt="burger menu" onclick="((e) => { e.currentTarget.classList.toggle('opened'); if (e.currentTarget.classList.contains('opened')) e.currentTarget.src = './assets/shared/mobile/icon-close.svg'; else e.currentTarget.src = './assets/shared/mobile/icon-hamburger.svg';  e.currentTarget.previousElementSibling.classList.toggle('hidden'); e.currentTarget.previousElementSibling.previousElementSibling.classList.toggle('opened'); e.currentTarget.previousElementSibling.previousElementSibling.previousElementSibling.classList.toggle('opened'); e.currentTarget.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.classList.toggle('hidden'); return false; })(arguments[0]); return false;" />
+    </header>
+    <main>
+        <div class="create-plan">
+            <div>
+                <h1>Create a plan</h1>
+                <div>
+                    Build a subscription plan that best fits your needs. We offer an assortment of the best artisan coffees from around the globe delivered fresh to your door.
+                </div>
+            </div>
+        </div>
+        <div class="how-it-works">
+            <div class="path"></div>
+            <div class="flex oval-container">
+                <div class="oval"></div>
+                <div class="oval"></div>
+                <div class="oval"></div>
+            </div>
+            <div class="flex steps">
+                <div style="flex: 1;">
+                    <h1>01</h1>
+                    <h3>Pick your coffee</h3>
+                    <div>
+                        Select from our evolving range of artisan coffees. Our beans are ethically sourced and we pay fair prices for them. There are new coffees in all profiles every month for you to try out.
+                    </div>
+                </div>
+                <div style="flex: 1;">
+                    <h1>02</h1>
+                    <h3>Choose the frequency</h3>
+                    <div>
+                        Customize your order frequency, quantity, even your roast style and grind type. Pause, skip or cancel your subscription with no commitment through our online portal.
+                    </div>
+                </div>
+                <div style="flex: 1;">
+                    <h1>03</h1>
+                    <h3>Receive and enjoy!</h3>
+                    <div>
+                        We ship your package within 48 hours, freshly roasted. Sit back and enjoy award-winning world-class coffees curated to provide a distinct tasting experience.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="steps flex">
+            <ul class="links">
+                <li>
+                    <a href="#preferences">
+                        <h4 class="flex">
+                            <span>01</span>
+                            <span>Preferences</span>
+                        </h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="#bean-type">
+                        <h4 class="flex">
+                            <span>02</span>
+                            <span>Bean Type</span>
+                        </h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="#quantity">
+                        <h4 class="flex">
+                            <span>03</span>
+                            <span>Quantity</span>
+                        </h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="#grind-option">
+                        <h4 class="flex">
+                            <span>04</span>
+                            <span>Grind Option</span>
+                        </h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="#deliveries">
+                        <h4 class="flex">
+                            <span>05</span>
+                            <span>Deliveries</span>
+                        </h4>
+                    </a>
+                </li>
+            </ul>
+            <div class="details">
+                <div>
+                    <button class="accordion-button opened" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.nextElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;">
+                        <h2>How do you drink your coffee?</h2>
+                        <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill-rule="nonzero" /></svg>
+                    </button>
+                    <div class="big-selection-option-panel flex opened">
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Capsule</h4>
+                            <span>Compatible with Nespresso systems and similar brewers</span>
+                        </button>
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Filter</h4>
+                            <span>For pour over or drip methods like Aeropress, Chemex, and V60</span>
+                        </button>
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Espresso</h4>
+                            <span>Dense and finely ground beans for an intense, flavorful experience</span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <button class="accordion-button" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.nextElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;">
+                        <h2>What type of coffee?</h2>
+                        <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill-rule="nonzero" /></svg>
+                    </button>
+                    <div class="big-selection-option-panel flex">
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Single origin</h4>
+                            <span>Distinct, high quality coffee from a specific family-owned farm</span>
+                        </button>
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Decaf</h4>
+                            <span>Just like regular coffee, except the caffeine has been removed</span>
+                        </button>
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Blended</h4>
+                            <span>Combination of two or three dark roasted beans of organic coffees</span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <button class="accordion-button" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.nextElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;">
+                        <h2>How much would you like?</h2>
+                        <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill-rule="nonzero" /></svg>
+                    </button>
+                    <div class="big-selection-option-panel flex">
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">250g</h4>
+                            <span>Perfect for the solo drinker. Yields about 12 delicious cups.</span>
+                        </button>
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">500g</h4>
+                            <span>Perfect option for a couple. Yields about 40 delectable cups.</span>
+                        </button>
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">1000g</h4>
+                            <span>Perfect for offices and events. Yields about 90 delightful cups.</span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <button class="accordion-button" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.nextElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;">
+                        <h2>Want us to grind them?</h2>
+                        <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill-rule="nonzero" /></svg>
+                    </button>
+                    <div class="big-selection-option-panel flex">
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Wholebean</h4>
+                            <span>Best choice if you cherish the full sensory experience</span>
+                        </button>
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Filter</h4>
+                            <span>For drip or pour-over coffee methods such as V60 or Aeropress</span>
+                        </button>
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Cafetiére</h4>
+                            <span>Course ground beans specially suited for french press coffee</span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <button class="accordion-button" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.nextElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;">
+                        <h2>How often should we deliver?</h2>
+                        <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill-rule="nonzero" /></svg>
+                    </button>
+                    <div class="big-selection-option-panel flex">
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Every week</h4>
+                            <span>$7.20 per shipment. Includes free first-class shipping.</span>
+                        </button>
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Every 2 weeks</h4>
+                            <span>$9.60 per shipment. Includes free priority shipping.</span>
+                        </button>
+                        <button class="big-selection-option">
+                            <h4 style="margin-bottom: 1.5rem;">Every month</h4>
+                            <span>$12.00 per shipment. Includes free priority shipping.</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="order-summary">
+                    <div>
+                        <div class="title">Order Summary</div>
+                        <h4 class="details">
+                            “I drink my coffee as _____, with a _____ type of bean. _____ ground ala _____,
+                            sent to me _____.”
+                        </h4>
+                    </div>
+                    <button class="main-button" onclick="((e) => { document.getElementsByClassName('modal-dialog')[0].classList.remove('hidden'); return false; })(arguments[0]); return false;">Create my plan!</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <img class="logo" src="./assets/shared/desktop/logo-white.svg" alt="logo" />
+        <ul class="navigation-menu">
+            <li><a href="./index.html">home</a></li>
+            <li><a href="./about.html">about us</a></li>
+            <li><a href="./plan.html">create your plan</a></li>
+        </ul>
+        <div class="icons flex">
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z" /></svg>
+            </a>
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 20"><path d="M24 2.557a9.83 9.83 0 01-2.828.775A4.932 4.932 0 0023.337.608a9.864 9.864 0 01-3.127 1.195A4.916 4.916 0 0016.616.248c-3.179 0-5.515 2.966-4.797 6.045A13.978 13.978 0 011.671 1.149a4.93 4.93 0 001.523 6.574 4.903 4.903 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.224.084 4.928 4.928 0 004.6 3.419A9.9 9.9 0 010 17.54a13.94 13.94 0 007.548 2.212c9.142 0 14.307-7.721 13.995-14.646A10.025 10.025 0 0024 2.557z" /></svg>
+            </a>
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>
+            </a>
+        </div>
+    </footer>
+    <!-- Modal -->
+    <div class="modal-dialog hidden">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="card">
+                <div class="title">
+                    <h2>
+                        Order Summary
+                    </h2>
+                </div>
+                <div class="content">
+                    <h4>
+                        “I drink coffee _____, with a _____ type of bean. _____ ground ala _____,
+                        sent to me _____.”
+                    </h4>
+                    <div>
+                        Is this correct? You can proceed to checkout or go back to plan selection if something
+                        is off. Subscription discount codes can also be redeemed at the checkout.
+                    </div>
+                    <div class="flex">
+                        <h3>$14.00/ mo</h3>
+                        <button class="main-button" onclick="((e) => { document.getElementsByClassName('modal-dialog')[0].classList.add('hidden'); return false; })(arguments[0]); return false;">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End modal -->
 </body>
 
 </html>
