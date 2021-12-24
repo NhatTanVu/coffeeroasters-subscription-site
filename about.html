@@ -45,8 +45,8 @@
                 background-image: url('./assets/about/desktop/image-commitment.jpg');
                 background-repeat: no-repeat;
                 background-size: cover;
-                min-width: 27.8125rem;
-                height: 32.5rem;
+                flex: 1 0 27.8125rem;
+                aspect-ratio: 27.8125/32.5;
                 border-radius: 0.5rem;
             }
 
@@ -151,8 +151,8 @@
 
                 .about > main > .our-commitment > .bitmap {
                     background-image: url('./assets/about/tablet/image-commitment.jpg');
-                    min-width: 18.733rem;
-                    height: 31.333rem;
+                    flex: 1 0 18.733rem;
+                    aspect-ratio: 18.733/31.333;
                     border-radius: 0.533rem;
                 }
 
@@ -172,7 +172,10 @@
                 .about > main > .uncompromising-quality > .bitmap {
                     background-image: url('./assets/about/tablet/image-quality.jpg');
                     top: -10.666rem;
-                    right: 3.8rem;
+                    left: 0;
+                    right: 0;
+                    margin-left: auto;
+                    margin-right: auto;
                     width: 38.2rem;
                     height: 21.333rem;
                     border-radius: 0.666rem;
@@ -246,8 +249,8 @@
 
                 .about > main > .our-commitment > .bitmap {
                     background-image: url('./assets/about/mobile/image-commitment.jpg');
-                    min-width: 21.8rem;
-                    height: 26.666rem;
+                    flex: 1 0 21.8rem;
+                    aspect-ratio: 21.8/26.666;
                     border-radius: 0.533rem;
                 }
 
@@ -263,7 +266,10 @@
                 .about > main > .uncompromising-quality > .bitmap {
                     background-image: url('./assets/about/mobile/image-quality.jpg');
                     top: -5.2rem;
-                    right: 1.6rem;
+                    left: 0;
+                    right: 0;
+                    margin-left: auto;
+                    margin-right: auto;
                     width: 18.6rem;
                     height: 10.4rem;
                     border-radius: 0.533rem;
