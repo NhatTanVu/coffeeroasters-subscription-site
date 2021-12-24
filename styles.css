@@ -529,7 +529,7 @@ footer {
                 display: flex;
                 flex-direction: column;
                 justify-items: center;
-                gap: min(calc(30vh - 4.13rem), 2.133rem);
+                gap: min(calc(27vh - 4.13rem), 2.133rem);
             }
 
                 header > .navigation-menu.opened::before {
