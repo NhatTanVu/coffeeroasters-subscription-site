@@ -470,6 +470,10 @@ footer {
         margin: 0;
     }
 
+        ul.navigation-menu > li > a {
+            display: block;
+        }
+
     .title-alternate-big {
         font-size: 6.4rem;
         line-height: 4.8rem;
