@@ -219,12 +219,12 @@ button.big-selection-option {
         white-space: nowrap;
     }
 
+    button.big-selection-option:focus,
     button.big-selection-option.hovered {
         background-color: var(--pale-orange);
         color: var(--dark-grey-blue);
     }
 
-    button.big-selection-option:focus,
     button.big-selection-option.active {
         background-color: var(--dark-cyan);
         color: white;

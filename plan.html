@@ -10,8 +10,85 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="scripts.js"></script>
 
     <title>Frontend Mentor | Coffeeroasters subscription site</title>
+
+    <script>
+        function isCompleted() {
+            let panels = document.getElementsByClassName("big-selection-option-panel");
+            let isCompleted = true;
+
+            let preferencesPanel = document.getElementById("preferences");
+            let preferencesActiveOptions = preferencesPanel.getElementsByClassName("active");
+            let isCapsuleSelected = (preferencesActiveOptions.length == 1) && (preferencesActiveOptions[0].childNodes[1].innerText == "Capsule");
+
+            for (panel of panels) {
+                if (panel.parentElement.id == "grind-option" && isCapsuleSelected)
+                    continue;
+                else {
+                    let activeOptions = panel.getElementsByClassName("active");
+                    isCompleted &= (activeOptions.length == 1);
+                }
+            }
+            return isCompleted;
+        }
+
+        window.addEventListener("load", function () {
+            let selectionOptions = document.getElementsByClassName("big-selection-option");
+            for (let i = 0; i < selectionOptions.length; i++) {
+                selectionOptions[i].addEventListener("click", (e) => {
+                    let selectedOption = e.currentTarget.parentElement.getElementsByClassName("active");
+                    let selectedOptionText = "_____";
+                    if (selectedOption.length > 0) {
+                        selectedOptionText = selectedOption[0].childNodes[1].innerText;
+                    }
+                    let stepElement = e.currentTarget.parentElement.parentElement;
+                    let stepSummaryElementClass = stepElement.id + "-summary";
+                    let stepSummaryElements = document.getElementsByClassName(stepSummaryElementClass);
+                    for (stepSummaryElement of stepSummaryElements) {
+                        stepSummaryElement.innerHTML = selectedOptionText;
+                    }
+
+                    let grindOption = document.getElementById("grind-option");
+                    let grindOptionLink = document.getElementById("grind-option-link");
+                    let accordionButton = grindOption.getElementsByClassName("accordion-button")[0];
+                    if (selectedOptionText == "Capsule") {
+                        let bigSelectionOptionPanel = grindOption.getElementsByClassName("big-selection-option-panel")[0];
+                        if (bigSelectionOptionPanel.getElementsByClassName("active").length > 0) {
+                            bigSelectionOptionPanel.getElementsByClassName("active")[0].click();
+                        }
+                        bigSelectionOptionPanel.classList.remove("opened");
+                        accordionButton.setAttribute("disabled", "disabled");
+                        accordionButton.classList.remove("opened");
+                        grindOptionLink.classList.add("disabled");
+                        grindOptionLink.getElementsByTagName("a")[0].removeAttribute("href");
+                    }
+                    else if (stepElement.id == "preferences") {
+                        accordionButton.removeAttribute("disabled");
+                        grindOptionLink.classList.remove("disabled");
+                        grindOptionLink.getElementsByTagName("a")[0].setAttribute("href", "#grind-option");
+                    }
+
+                    let linkList = document.getElementsByClassName("links")[0];
+                    if (isCompleted()) {
+                        linkList.classList.add("completed");
+                        document.getElementById("create-my-plan").removeAttribute("disabled");
+                    }
+                    else {
+                        linkList.classList.remove("completed");
+                        document.getElementById("create-my-plan").setAttribute("disabled", "disabled");
+                    }
+                });
+            }
+            document.getElementById("create-my-plan").addEventListener("click", (e) => {
+                document.getElementsByClassName('modal-dialog')[0].classList.remove('hidden');
+            });
+            document.getElementById("check-out").addEventListener("click", (e) => {
+                document.getElementsByClassName('modal-dialog')[0].classList.add('hidden');
+            });
+        });
+    </script>
 
     <style>
         .plan > main > .create-plan {
@@ -98,18 +175,21 @@
                 margin: 0;
             }
 
+                .plan > main > .steps.flex > ul.links > li.separator {
+                    padding: 0;
+                    border-bottom: 0.0625rem solid var(--grey);
+                }
+
                 .plan > main > .steps.flex > ul.links > li:first-child {
                     padding: 0 0 1.5rem 0;
-                    border-bottom: 0.0625rem solid var(--grey);
                 }
 
                     .plan > main > .steps.flex > ul.links > li:first-child > a > h4 > span:first-child {
                         color: var(--dark-cyan);
                     }
 
-                .plan > main > .steps.flex > ul.links > li:not(:first-child):not(:last-child) {
+                .plan > main > .steps.flex > ul.links > li:not(:first-child):not(:last-child):not(.separator) {
                     padding: 1.5rem 0;
-                    border-bottom: 0.0625rem solid var(--grey);
                 }
 
                 .plan > main > .steps.flex > ul.links > li:last-child {
@@ -198,6 +278,10 @@
                     line-height: 2.5rem;
                 }
 
+                    .plan > main > .steps > .details > div.order-summary > div > .details > .option-text {
+                        color: var(--dark-cyan);
+                    }
+
         .modal-dialog {
             position: fixed;
             top: 0;
@@ -259,6 +343,10 @@
                             margin-bottom: 0.5rem;
                         }
 
+                            .modal-dialog > .container > .card > .content > h4 > .option-text {
+                                color: var(--dark-cyan);
+                            }
+
                             .modal-dialog > .container > .card > .content > h4 + div {
                                 margin-bottom: 3rem;
                                 opacity: 0.8;
@@ -291,7 +379,7 @@
             <li><a href="./plan.html">Create Your Plan</a></li>
         </ul>
         <img class="burger hidden" src="./assets/shared/mobile/icon-hamburger.svg" alt="burger menu" />
-        <img class="burger" src="./assets/shared/mobile/icon-hamburger.svg" alt="burger menu" onclick="((e) => { e.currentTarget.classList.toggle('opened'); if (e.currentTarget.classList.contains('opened')) e.currentTarget.src = './assets/shared/mobile/icon-close.svg'; else e.currentTarget.src = './assets/shared/mobile/icon-hamburger.svg';  e.currentTarget.previousElementSibling.classList.toggle('hidden'); e.currentTarget.previousElementSibling.previousElementSibling.classList.toggle('opened'); e.currentTarget.previousElementSibling.previousElementSibling.previousElementSibling.classList.toggle('opened'); e.currentTarget.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.classList.toggle('hidden'); return false; })(arguments[0]); return false;" />
+        <img id="burger" class="burger" src="./assets/shared/mobile/icon-hamburger.svg" alt="burger menu" />
     </header>
     <main>
         <div class="create-plan">
@@ -343,6 +431,7 @@
                         </h4>
                     </a>
                 </li>
+                <li class="separator"></li>
                 <li>
                     <a href="#bean-type">
                         <h4 class="flex">
@@ -351,6 +440,7 @@
                         </h4>
                     </a>
                 </li>
+                <li class="separator"></li>
                 <li>
                     <a href="#quantity">
                         <h4 class="flex">
@@ -359,7 +449,8 @@
                         </h4>
                     </a>
                 </li>
-                <li>
+                <li class="separator"></li>
+                <li id="grind-option-link">
                     <a href="#grind-option">
                         <h4 class="flex">
                             <span>04</span>
@@ -367,6 +458,7 @@
                         </h4>
                     </a>
                 </li>
+                <li class="separator"></li>
                 <li>
                     <a href="#deliveries">
                         <h4 class="flex">
@@ -377,7 +469,7 @@
                 </li>
             </ul>
             <div class="details">
-                <div>
+                <div id="preferences">
                     <button class="accordion-button opened" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.nextElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;">
                         <h2>How do you drink your coffee?</h2>
                         <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill-rule="nonzero" /></svg>
@@ -397,7 +489,7 @@
                         </button>
                     </div>
                 </div>
-                <div>
+                <div id="bean-type">
                     <button class="accordion-button" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.nextElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;">
                         <h2>What type of coffee?</h2>
                         <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill-rule="nonzero" /></svg>
@@ -417,7 +509,7 @@
                         </button>
                     </div>
                 </div>
-                <div>
+                <div id="quantity">
                     <button class="accordion-button" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.nextElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;">
                         <h2>How much would you like?</h2>
                         <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill-rule="nonzero" /></svg>
@@ -437,7 +529,7 @@
                         </button>
                     </div>
                 </div>
-                <div>
+                <div id="grind-option">
                     <button class="accordion-button" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.nextElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;">
                         <h2>Want us to grind them?</h2>
                         <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill-rule="nonzero" /></svg>
@@ -457,7 +549,7 @@
                         </button>
                     </div>
                 </div>
-                <div>
+                <div id="deliveries">
                     <button class="accordion-button" onclick="((e) => { e.currentTarget.classList.toggle('opened'); e.currentTarget.nextElementSibling.classList.toggle('opened'); return false; })(arguments[0]); return false;">
                         <h2>How often should we deliver?</h2>
                         <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M15.949.586l2.828 2.828-9.096 9.096L.586 3.414 3.414.586l6.267 6.267z" fill-rule="nonzero" /></svg>
@@ -481,11 +573,10 @@
                     <div>
                         <div class="title">Order Summary</div>
                         <h4 class="details">
-                            “I drink my coffee as _____, with a _____ type of bean. _____ ground ala _____,
-                            sent to me _____.”
+                            “I drink my coffee as <span class="option-text preferences-summary">_____</span>, with a <span class="option-text bean-type-summary">_____</span> type of bean. <span class="option-text quantity-summary">_____</span> ground ala <span class="option-text grind-option-summary">_____</span>, sent to me <span class="option-text deliveries-summary">_____</span>.”
                         </h4>
                     </div>
-                    <button class="main-button" onclick="((e) => { document.getElementsByClassName('modal-dialog')[0].classList.remove('hidden'); return false; })(arguments[0]); return false;">Create my plan!</button>
+                    <button class="main-button" id="create-my-plan" disabled>Create my plan!</button>
                 </div>
             </div>
         </div>
@@ -521,8 +612,8 @@
                 </div>
                 <div class="content">
                     <h4>
-                        “I drink coffee _____, with a _____ type of bean. _____ ground ala _____,
-                        sent to me _____.”
+                        “I drink my coffee as <span class="option-text preferences-summary">_____</span>, with a <span class="option-text bean-type-summary">_____</span> type of bean. <span class="option-text quantity-summary">_____</span> ground ala <span class="option-text grind-option-summary">_____</span>,
+                        sent to me <span class="option-text deliveries-summary">_____</span>.”
                     </h4>
                     <div>
                         Is this correct? You can proceed to checkout or go back to plan selection if something
@@ -530,7 +621,7 @@
                     </div>
                     <div class="flex">
                         <h3>$14.00/ mo</h3>
-                        <button class="main-button" onclick="((e) => { document.getElementsByClassName('modal-dialog')[0].classList.add('hidden'); return false; })(arguments[0]); return false;">Checkout</button>
+                        <button class="main-button" id="check-out">Checkout</button>
                     </div>
                 </div>
             </div>

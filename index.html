@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="scripts.js"></script>
 
     <title>Frontend Mentor | Coffeeroasters subscription site</title>
 
@@ -457,7 +458,7 @@
             <li><a href="./plan.html">Create Your Plan</a></li>
         </ul>
         <img class="burger hidden" src="./assets/shared/mobile/icon-hamburger.svg" alt="burger menu" />
-        <img class="burger" src="./assets/shared/mobile/icon-hamburger.svg" alt="burger menu" onclick="((e) => { e.currentTarget.classList.toggle('opened'); if (e.currentTarget.classList.contains('opened')) e.currentTarget.src = './assets/shared/mobile/icon-close.svg'; else e.currentTarget.src = './assets/shared/mobile/icon-hamburger.svg';  e.currentTarget.previousElementSibling.classList.toggle('hidden'); e.currentTarget.previousElementSibling.previousElementSibling.classList.toggle('opened'); e.currentTarget.previousElementSibling.previousElementSibling.previousElementSibling.classList.toggle('opened'); e.currentTarget.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.classList.toggle('hidden'); return false; })(arguments[0]); return false;" />
+        <img id="burger" class="burger" src="./assets/shared/mobile/icon-hamburger.svg" alt="burger menu" />
     </header>
     <main>
         <div class="great-coffee-made-simple">
