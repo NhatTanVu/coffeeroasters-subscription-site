@@ -117,6 +117,7 @@
             position: relative;
             background-color: var(--dark-grey-blue-2);
             padding: 12.5rem 9.375rem 6.25rem 5.25rem;
+            border-radius: 0.625rem;
             margin-bottom: 10.5rem;
         }
 
@@ -129,7 +130,7 @@
                 top: 7.25rem;
                 left: 6.25rem;
                 width: 47.5rem;
-                border: 0.125rem solid var(--pale-orange);
+                border: 0.03125rem solid var(--pale-orange);
                 background-color: var(--pale-orange);
             }
 
@@ -235,52 +236,56 @@
                     opacity: 1;
                 }
 
-        .plan > main > .steps > .details > div:not(:last-child) {
-            margin-bottom: 5.5rem;
-        }
-
-        .plan > main > .steps > .details > div > .big-selection-option-panel.flex {
-            color: var(--grey);
-            margin-top: 3.5rem;
-            justify-content: space-between;
-            --gap: 1.5rem;
-            display: none;
-        }
-
-            .plan > main > .steps > .details > div > .big-selection-option-panel.flex > * {
-                flex: 1;
+            .plan > main > .steps.flex > .details > div:not(:last-child) {
+                margin-bottom: 5.5rem;
             }
 
-            .plan > main > .steps > .details > div > .big-selection-option-panel.flex.opened {
-                display: flex;
+            .plan > main > .steps.flex > .details > div > .big-selection-option-panel.flex {
+                color: var(--grey);
+                margin-top: 3.5rem;
+                justify-content: space-between;
+                --gap: 1.5rem;
+                display: none;
             }
 
-        .plan > main > .steps > .details > div.order-summary {
-            text-align: right;
-        }
-
-            .plan > main > .steps > .details > div.order-summary > div {
-                padding: 3rem 4rem;
-                border-radius: 0.625rem;
-                background-color: var(--dark-grey-blue-2);
-                color: white;
-                margin-bottom: 2.5rem;
-                text-align: left;
-            }
-
-                .plan > main > .steps > .details > div.order-summary > div > .title {
-                    text-transform: uppercase;
-                    opacity: 0.5;
-                    margin-bottom: 0.5rem;
+                .plan > main > .steps.flex > .details > div > .big-selection-option-panel.flex > button {
+                    flex: 1;
                 }
 
-                .plan > main > .steps > .details > div.order-summary > div > .details {
-                    line-height: 2.5rem;
-                }
-
-                    .plan > main > .steps > .details > div.order-summary > div > .details > .option-text {
-                        color: var(--dark-cyan);
+                    .plan > main > .steps.flex > .details > div > .big-selection-option-panel.flex > button > h4 {
+                        margin-bottom: 1.5rem;
                     }
+
+                .plan > main > .steps.flex > .details > div > .big-selection-option-panel.flex.opened {
+                    display: flex;
+                }
+
+            .plan > main > .steps.flex > .details > div.order-summary {
+                text-align: right;
+            }
+
+                .plan > main > .steps.flex > .details > div.order-summary > div {
+                    padding: 3rem 4rem;
+                    border-radius: 0.625rem;
+                    background-color: var(--dark-grey-blue-2);
+                    color: white;
+                    margin-bottom: 2.5rem;
+                    text-align: left;
+                }
+
+                    .plan > main > .steps.flex > .details > div.order-summary > div > .title {
+                        text-transform: uppercase;
+                        opacity: 0.5;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    .plan > main > .steps.flex > .details > div.order-summary > div > .details {
+                        line-height: 2.5rem;
+                    }
+
+                        .plan > main > .steps.flex > .details > div.order-summary > div > .details > .option-text {
+                            color: var(--dark-cyan);
+                        }
 
         .modal-dialog {
             position: fixed;
@@ -301,26 +306,28 @@
                 height: 100%;
                 background-color: black;
                 opacity: 0.5;
-                content: '';
             }
 
             .modal-dialog > .container {
                 position: absolute;
-                margin: 0 28rem 0 28rem;
+                margin: 0;
                 height: 100%;
+                width: 100%;
             }
 
                 .modal-dialog > .container > .card {
                     position: relative;
+                    left: 50%;
                     top: 50%;
-                    -webkit-transform: translateY(-50%);
-                    -ms-transform: translateY(-50%);
-                    transform: translateY(-50%);
+                    -webkit-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
                     border-radius: 0.5rem;
                     background-color: var(--light-cream);
                     color: var(--dark-grey-blue);
-                    min-height: 58.3vh;
+                    height: 37.016rem;
+                    width: 33.482rem;
                     text-align: left;
+                    overflow: auto;
                 }
 
                     .modal-dialog > .container > .card > .title {
@@ -366,6 +373,307 @@
                                         width: 100%;
                                         padding: 1rem 0;
                                     }
+
+        /* ------------------- */
+        /* Tablet view         */
+        /* ------------------- */
+        @media only screen and (min-width : 768px) and (max-width : 1023px) {
+            .plan > main > .create-plan {
+                background-image: url('./assets/plan/tablet/image-hero-blackcup.jpg');
+                padding: 8.4rem 0 8.4rem 4rem;
+                border-radius: 0.666rem;
+                margin-bottom: 9.6rem;
+            }
+
+                .plan > main > .create-plan > div {
+                    width: 26rem;
+                    text-align: left;
+                }
+
+                    .plan > main > .create-plan > div > div {
+                        margin: 1.6rem 0 0 0;
+                    }
+
+                    .plan > main > .create-plan > div > h1 {
+                        font-size: 3.2rem;
+                        line-height: 3.2rem;
+                    }
+
+            .plan > main > .how-it-works {
+                margin-left: -2.6rem;
+                margin-right: -2.6rem;
+                padding: 11.8rem 2.6rem 4.6rem 2.6rem;
+                border-radius: 0.666rem;
+                margin-bottom: 9.6rem;
+            }
+
+                .plan > main > .how-it-works > .path {
+                    position: absolute;
+                    top: 7.4rem;
+                    left: 3.64rem;
+                    width: 31.2rem;
+                    border: 0.066rem solid var(--pale-orange);
+                    background-color: var(--pale-orange);
+                }
+
+                .plan > main > .how-it-works > .oval-container {
+                    position: absolute;
+                    top: 6.4rem;
+                    left: 2.6rem;
+                    width: 33.2rem;
+                    justify-content: space-between;
+                }
+
+                    .plan > main > .how-it-works > .oval-container > div.oval {
+                        border: 0.133rem solid var(--dark-cyan);
+                    }
+
+                .plan > main > .how-it-works > .steps {
+                    --gap: 0.666rem;
+                    color: white;
+                }
+
+                    .plan > main > .how-it-works > .steps > div > h3 {
+                        margin: 2.375rem 1.875rem 2.625rem 0;
+                    }
+
+            .plan > main > .steps.flex {
+                margin: 0;
+            }
+
+                .plan > main > .steps.flex > ul.links {
+                    display: none;
+                }
+
+                .plan > main > .steps.flex > .details > div > .big-selection-option-panel.flex {
+                    margin-top: 2.6rem;
+                    --gap: 0.666rem;
+                }
+
+                    .plan > main > .steps.flex > .details > div > .big-selection-option-panel.flex > button > h4 {
+                        margin-bottom: 1.6rem;
+                    }
+
+                    .plan > main > .steps.flex > .details > div > .big-selection-option-panel.flex > button > span {
+                        font-size: 1.066rem;
+                        line-height: 1.733rem;
+                    }
+
+                .plan > main > .steps.flex > .details > div:not(:last-child) {
+                    margin-bottom: 6.666rem;
+                }
+
+                .plan > main > .steps.flex > .details > div#deliveries {
+                    margin-bottom: 9.6rem;
+                }
+
+                .plan > main > .steps.flex > .details > div.order-summary {
+                    margin-bottom: 9.6rem;
+                    text-align: inherit;
+                }
+
+                    .plan > main > .steps.flex > .details > div.order-summary > div {
+                        padding: 1.8rem 2.866rem;
+                        border-radius: 0.666rem;
+                        margin-bottom: 2.666rem;
+                    }
+
+                        .plan > main > .steps.flex > .details > div.order-summary > div > .title {
+                            margin-bottom: 0.53rem;
+                            font-size: 1.066rem;
+                            line-height: 1.733rem;
+                        }
+
+                        .plan > main > .steps.flex > .details > div.order-summary > div > .details {
+                            line-height: 2.667rem;
+                        }
+
+            .modal-dialog > .container > .card {
+                width: 36rem;
+                height: 39.8rem;
+                border-radius: 0.53rem;
+            }
+
+                .modal-dialog > .container > .card > .title {
+                    padding: 3.2rem 0 2.666rem 3.733rem;
+                    border-radius: 0.53rem 0.53rem 0 0;
+                }
+
+                .modal-dialog > .container > .card > .content {
+                    padding: 3.7333rem;
+                }
+
+                    .modal-dialog > .container > .card > .content > h4 {
+                        line-height: 2.666rem;
+                        margin-bottom: 0.466rem;
+                    }
+
+                        .modal-dialog > .container > .card > .content > h4 + div {
+                            margin-bottom: 3.2rem;
+                            font-size: 1.066rem;
+                            line-height: 1.733rem;
+                        }
+
+                            .modal-dialog > .container > .card > .content > h4 + div + div.flex > h3 {
+                                font-size: 2.133rem;
+                                line-height: 2.4rem;
+                            }
+        }
+
+        /* ------------------- */
+        /* Mobile view         */
+        /* ------------------- */
+        @media only screen and (max-width : 767px) {
+            .plan > main > .create-plan {
+                background-image: url('./assets/plan/mobile/image-hero-blackcup.jpg');
+                padding: 6.8rem 1.6rem 9rem 1.6rem;
+                border-radius: 0.666rem;
+                margin-bottom: 8rem;
+            }
+
+                .plan > main > .create-plan > div {
+                    width: auto;
+                    text-align: inherit;
+                }
+
+                    .plan > main > .create-plan > div > div {
+                        margin: 1.4rem 0 0 0;
+                    }
+
+                    .plan > main > .create-plan > div > h1 {
+                        font-size: 2.666rem;
+                        line-height: 2.666rem;
+                    }
+
+            .plan > main > .how-it-works {
+                margin-left: -1.6rem;
+                margin-right: -1.6rem;
+                padding: 5.333rem 1.6rem 5.266rem 1.6rem;
+                border-radius: 0.666rem;
+                margin-bottom: 8rem;
+            }
+
+                .plan > main > .how-it-works > .path {
+                    display: none;
+                }
+
+                .plan > main > .how-it-works > .oval-container {
+                    display: none;
+                }
+
+                .plan > main > .how-it-works > .steps {
+                    --gap: 3.733rem;
+                    color: white;
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                    .plan > main > .how-it-works > .steps > div > h3 {
+                        margin: 1.6rem 1.6rem 0 1.6rem;
+                    }
+
+            .plan > main > .steps.flex {
+                margin: 0;
+            }
+
+                .plan > main > .steps.flex > ul.links {
+                    display: none;
+                }
+
+                .plan > main > .steps.flex > .details > div > .big-selection-option-panel.flex {
+                    margin-top: 2.133rem;
+                    --gap: 1.066rem;
+                    flex-direction: column;
+                }
+
+                    .plan > main > .steps.flex > .details > div > .big-selection-option-panel.flex > button > h4 {
+                        margin-bottom: 0.533rem;
+                    }
+
+                    .plan > main > .steps.flex > .details > div > .big-selection-option-panel.flex > button > span {
+                        font-size: 1.066rem;
+                        line-height: 1.733rem;
+                    }
+
+                .plan > main > .steps.flex > .details > div > button.accordion-button > h2 {
+                    text-align: left;
+                    font-size: 1.6rem;
+                    line-height: 1.866rem;
+                    display: block;
+                    width: 16rem;
+                }
+
+                .plan > main > .steps.flex > .details > div:not(:last-child) {
+                    margin-bottom: 6.4rem;
+                }
+
+                .plan > main > .steps.flex > .details > div#preferences {
+                    margin-bottom: 7.333rem;
+                }
+
+                .plan > main > .steps.flex > .details > div#deliveries {
+                    margin-bottom: 8rem;
+                }
+
+                .plan > main > .steps.flex > .details > div.order-summary {
+                    margin-bottom: 8rem;
+                    text-align: center;
+                }
+
+                    .plan > main > .steps.flex > .details > div.order-summary > div {
+                        padding: 2.133rem 1.6rem 2.133rem 1.6rem;
+                        border-radius: 0.666rem;
+                        margin-bottom: 3.733rem;
+                    }
+
+                        .plan > main > .steps.flex > .details > div.order-summary > div > .title {
+                            margin-bottom: 0.53rem;
+                            font-size: 1.066rem;
+                            line-height: 1.733rem;
+                        }
+
+                        .plan > main > .steps.flex > .details > div.order-summary > div > .details {
+                            line-height: 2.667rem;
+                        }
+
+                    .plan > main > .steps.flex > .details > div.order-summary > button.main-button {
+                        padding-left: 2.366rem;
+                        padding-right: 2.366rem;
+                    }
+
+            .modal-dialog > .container > .card {
+                width: 21.8rem;
+                height: min(39.8rem, 100vh - 2.333rem);
+                border-radius: 0.53rem;
+            }
+
+                .modal-dialog > .container > .card > .title {
+                    padding: 1.866rem 0 1.866rem 1.6rem;
+                    border-radius: 0.53rem 0.53rem 0 0;
+                }
+
+                    .modal-dialog > .container > .card > .title > h2 {
+                        font-size: 1.866rem;
+                        line-height: 2.133rem;
+                    }
+
+                .modal-dialog > .container > .card > .content {
+                    padding: 2.666rem 1.6rem 1.6rem 1.6rem;
+                }
+
+                    .modal-dialog > .container > .card > .content > h4 {
+                        line-height: 2.666rem;
+                        margin-bottom: 0;
+                    }
+
+                        .modal-dialog > .container > .card > .content > h4 + div {
+                            margin-bottom: 1.6rem;
+                        }
+
+                            .modal-dialog > .container > .card > .content > h4 + div + div.flex > h3 {
+                                display: none;
+                            }
+        }
     </style>
 </head>
 
@@ -476,15 +784,15 @@
                     </button>
                     <div class="big-selection-option-panel flex opened">
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Capsule</h4>
+                            <h4>Capsule</h4>
                             <span>Compatible with Nespresso systems and similar brewers</span>
                         </button>
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Filter</h4>
+                            <h4>Filter</h4>
                             <span>For pour over or drip methods like Aeropress, Chemex, and V60</span>
                         </button>
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Espresso</h4>
+                            <h4>Espresso</h4>
                             <span>Dense and finely ground beans for an intense, flavorful experience</span>
                         </button>
                     </div>
@@ -496,15 +804,15 @@
                     </button>
                     <div class="big-selection-option-panel flex">
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Single origin</h4>
+                            <h4>Single origin</h4>
                             <span>Distinct, high quality coffee from a specific family-owned farm</span>
                         </button>
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Decaf</h4>
+                            <h4>Decaf</h4>
                             <span>Just like regular coffee, except the caffeine has been removed</span>
                         </button>
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Blended</h4>
+                            <h4>Blended</h4>
                             <span>Combination of two or three dark roasted beans of organic coffees</span>
                         </button>
                     </div>
@@ -516,15 +824,15 @@
                     </button>
                     <div class="big-selection-option-panel flex">
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">250g</h4>
+                            <h4>250g</h4>
                             <span>Perfect for the solo drinker. Yields about 12 delicious cups.</span>
                         </button>
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">500g</h4>
+                            <h4>500g</h4>
                             <span>Perfect option for a couple. Yields about 40 delectable cups.</span>
                         </button>
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">1000g</h4>
+                            <h4>1000g</h4>
                             <span>Perfect for offices and events. Yields about 90 delightful cups.</span>
                         </button>
                     </div>
@@ -536,15 +844,15 @@
                     </button>
                     <div class="big-selection-option-panel flex">
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Wholebean</h4>
+                            <h4>Wholebean</h4>
                             <span>Best choice if you cherish the full sensory experience</span>
                         </button>
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Filter</h4>
+                            <h4>Filter</h4>
                             <span>For drip or pour-over coffee methods such as V60 or Aeropress</span>
                         </button>
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Cafetiére</h4>
+                            <h4>Cafetiére</h4>
                             <span>Course ground beans specially suited for french press coffee</span>
                         </button>
                     </div>
@@ -556,15 +864,15 @@
                     </button>
                     <div class="big-selection-option-panel flex">
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Every week</h4>
+                            <h4>Every week</h4>
                             <span>$7.20 per shipment. Includes free first-class shipping.</span>
                         </button>
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Every 2 weeks</h4>
+                            <h4>Every 2 weeks</h4>
                             <span>$9.60 per shipment. Includes free priority shipping.</span>
                         </button>
                         <button class="big-selection-option">
-                            <h4 style="margin-bottom: 1.5rem;">Every month</h4>
+                            <h4>Every month</h4>
                             <span>$12.00 per shipment. Includes free priority shipping.</span>
                         </button>
                     </div>
@@ -621,7 +929,7 @@
                     </div>
                     <div class="flex">
                         <h3>$14.00/ mo</h3>
-                        <button class="main-button" id="check-out">Checkout</button>
+                        <button class="main-button" id="check-out">Checkout<span class="mobile-only"> - $14.00 / mo</span></button>
                     </div>
                 </div>
             </div>

@@ -227,6 +227,10 @@ button.big-selection-option {
 
     button.big-selection-option.active {
         background-color: var(--dark-cyan);
+        color: var(--light-cream);
+    }
+
+    button.big-selection-option.active > h4 {
         color: white;
     }
 
@@ -269,6 +273,10 @@ button.accordion-button {
     button.accordion-button:hover svg {
         fill: var(--main-button-hover);
     }
+}
+
+.mobile-only {
+    display: none;
 }
 
 /* ------------------- */
@@ -399,6 +407,11 @@ footer {
         padding: 1rem 2.067rem;
     }
 
+    button.big-selection-option {
+        padding: 2.133rem 1.733rem 5.6rem 1.666rem;
+        border-radius: 0.53rem;
+    }
+
     header {
         align-items: center;
         padding: 3.267rem 0 2.933rem 0;
@@ -487,6 +500,11 @@ footer {
         font-size: 1.2rem;
         line-height: 1.667rem;
         padding: 1rem 2.067rem;
+    }
+
+    button.big-selection-option {
+        padding: 1.6rem;
+        border-radius: 0.53rem;
     }
 
     header {
@@ -598,4 +616,8 @@ footer {
                 width: 1.6rem;
                 height: 1.6rem;
             }
+
+    .mobile-only {
+        display: inline-block;
+    }
 }
