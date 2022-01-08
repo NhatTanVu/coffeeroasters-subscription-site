@@ -6,10 +6,22 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- connect to domain of font files -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- optionally increase loading priority -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@900&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap">
+
+    <!-- async CSS -->
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@900&display=swap">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap">
+
+    <!-- no-JS fallback -->
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@900&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap">
+    </noscript>
 
     <link rel="stylesheet" href="styles.css">
 
